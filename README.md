@@ -2,7 +2,7 @@
 
 ACTYVE is an activity tracking app built with Ruby on Rails.
 
-[!ACTYVE](app/assets/images/actyve.png)
+[![ACTYVE](app/assets/images/actyve.png)
 
 ## Description
 
