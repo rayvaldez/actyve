@@ -10,13 +10,15 @@
   </head>
 
   <body>
+    <% if is_logged_in? %>
+      <%= link_to "Home", activities_path %>
+      <%= link_to "New Activity", exercises_path(@activity) %>
+      <%= link_to "New Exercise", new_exercise_path %>
+      <%= link_to "#{current_user.username}", user_path(current_user.id) %>
+      <%= link_to "Log out", logout_path, method: :delete %>
+    <% end %>
+
     <%= yield %>
   </body>
 
-  <footer>
-    <br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br>
-    <br><br><br><br><br><br><br>
-    <%= link_to 'Log out', logout_path, method: :delete %>
-  </footer>
 </html>
