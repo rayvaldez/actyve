@@ -8,5 +8,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:welcome, :new, :create, :show]
 
+  resources :exercises, only: [:index, :new, :create, :show] do
+    resources :activities, only: [:new, :create, :show]
+  end
+
   resources :activities, only: [:index]
 end
