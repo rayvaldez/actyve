@@ -10,7 +10,7 @@
 
   <%= f.label :title, "Title your activity" %>
   <%= f.text_field :title %>
-  
+
   <br><br>
 
   <%= f.label :location %>
@@ -29,9 +29,9 @@
   <br><br>
 
   <%= f.label :hour, "Hour(s)" %>
-  <%= f.number_field :hour %>
+  <%= f.number_field :hour, value: "0" %>
   <%= f.label :minute, "Minute(s)" %>
-  <%= f.number_field :minute %>
+  <%= f.number_field :minute, value: "0" %>
 
   <br><br>
 
