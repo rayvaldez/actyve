@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_06_19_173937) do
 
   create_table "activities", force: :cascade do |t|
+    t.string "title"
     t.string "location"
     t.integer "distance"
     t.integer "hour"

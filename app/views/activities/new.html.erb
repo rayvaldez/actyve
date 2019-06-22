@@ -8,6 +8,9 @@
   <%#= f.label :exercise %>
   <%#= f.collection_select :exercise_id, Exercise.all, :id, :name, {:selected => @exercise.id} %>
 
+  <%= f.label :title, "Title your activity" %>
+  <%= f.text_field :title %>
+  
   <br><br>
 
   <%= f.label :location %>
