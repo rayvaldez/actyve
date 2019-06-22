@@ -1,0 +1,52 @@
+<h1>Add an activity</h1>
+<h2><%= @exercise.name %></h2>
+
+<%= form_for [@exercise, @activity] do |f| %>
+
+  <%= f.hidden_field :exercise_id, :value => @exercise.id %>
+  <%= f.hidden_field :user_id, :value =>@user.id %>
+  <%#= f.label :exercise %>
+  <%#= f.collection_select :exercise_id, Exercise.all, :id, :name, {:selected => @exercise.id} %>
+
+  <br><br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <br><br>
+
+  <%= f.label :distance, "Distance (km)" %>
+  <%= f.number_field :distance %>
+
+  <br><br>
+
+  <%= f.label :calories %>
+  <%= f.text_field :calories %>
+
+  <br><br>
+
+  <%= f.label :hour, "Hour(s)" %>
+  <%= f.number_field :hour %>
+  <%= f.label :minute, "Minute(s)" %>
+  <%= f.number_field :minute %>
+
+  <br><br>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment, rows: 2 %>
+
+  <br><br>
+
+  Wrong Exercise? <%= link_to "Choose a different exercise", exercises_path(@exercise) %>
+
+  <br><br>
+
+  Exercise not listed? <%= link_to "Add an exercise", new_exercise_path(@exercise) %>
+
+  <br><br>
+
+  <%= f.submit %>
+
+<% end %>
+
+<%= params %>

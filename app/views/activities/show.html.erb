@@ -1,0 +1,19 @@
+<h1>Your Exercise</h1>
+
+<h2><%= @exercise.name %></h2>
+
+<h3>Duration (HH:MM)</h3><%= @activity.hour %>:<%= @activity.minute %>
+
+<h3>Distance</h3><%= @activity.distance %>km
+
+<h3>Calories Burned</h3><%= @activity.calories %>
+
+<h3>Location</h3><%= @activity.location %>
+
+<h3>Comment</h3><%= @activity.comment %>
+
+<br><br><br><br>
+
+<%= link_to "All activities", activities_path %>
+
+<%= @activity.user.username %>
