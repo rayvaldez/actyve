@@ -22,16 +22,23 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @exercise = Exercise.find_by_id(params[:exercise_id])
     @activity = Activity.find_by(id: params[:id])
   end
 
   def edit
+    @user = current_user
+    @exercise = Exercise.find_by_id(params[:exercise_id])
     @activity = Activity.find(params[:id])
   end
 
   def update
-    
+    @exercise = Exercise.find_by_id(params[:exercise_id])
+    @activity = current_user.activities.update(activity_params)
+    # raise params.inspect
+    redirect_to exercise_activity_path(@exercise, @activity)
+
   end
 
   def destroy
