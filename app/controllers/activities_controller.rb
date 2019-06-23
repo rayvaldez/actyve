@@ -22,7 +22,23 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @exercise = Exercise.find_by_id(params[:exercise_id])
     @activity = Activity.find_by(id: params[:id])
+  end
+
+  def edit
+    @activity = Activity.find(params[:id])
+  end
+
+  def update
+    
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+
+    redirect_to exercise_activities
   end
 
   private

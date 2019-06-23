@@ -12,8 +12,8 @@
 
 <h3>Comment</h3><%= @activity.comment %>
 
-<br><br><br><br>
+<br><br>
 
-<%= link_to "All activities", activities_path %>
+<%= link_to "Edit", edit_exercise_activity_path(@activity) %>
 
-<%= @activity.user.username %>
+<%= link_to "Delete", exercise_activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"} %>
