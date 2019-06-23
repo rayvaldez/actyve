@@ -14,10 +14,10 @@
 
 <br><br>
 
-<% if session[:user_id] = @user.id %>
+<% if @activity.user_id == current_user.id %>
 
-<%= link_to "Edit", edit_exercise_activity_path(@activity) %>
+  <%= link_to "Edit", edit_exercise_activity_path(@activity) %>
 
-<%= link_to "Delete", exercise_activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Delete", exercise_activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"} %>
 
 <% end %>
