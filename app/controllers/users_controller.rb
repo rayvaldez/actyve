@@ -21,13 +21,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @activities = Activity.user_activities(@user)
-    @minutes = []
-    @hours = []
-    @activities_time = @activities.each do |activity|
-      @minutes << activity.minute
-      @hours << activity.hour
-    end
-    @total_minutes = (@minutes.inject(:+)) + (@hours.inject(:+)) * 60
   end
 
   private
