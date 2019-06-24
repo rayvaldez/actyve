@@ -45,7 +45,7 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     @activity.destroy
 
-    redirect_to exercise_activities
+    redirect_to exercise_activities_path
   end
 
   private

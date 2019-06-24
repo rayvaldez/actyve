@@ -1,0 +1,9 @@
+<h1><%= current_user.username %></h1>
+
+<h2>Summary</h2>
+
+<h3>Total Activities</h3><%= @activities.size %>
+
+<h3>Total Activity Time</h3><%= distance_of_time_in_words(@total_minutes.minutes) %>
+
+<h3>Most recent activity</h3><%= link_to @activities.last.exercise.name %> - <%= @activities.last.title %> posted on <%= @activities.last.created_at.strftime("%B %d, %Y") %>
