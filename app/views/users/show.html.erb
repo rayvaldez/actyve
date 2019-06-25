@@ -8,4 +8,7 @@
 
 <h3>Total Calories Burned</h3><%= @activities.sum(:calories) %>
 
-<h3>Most recent activity</h3><%= link_to @activities.last.exercise.name %> - <%= @activities.last.title %> posted on <%= @activities.last.created_at.strftime("%B %d, %Y") %>
+<h3>Last 3 activities</h3><ul><% @activities.last(3).each do |activity| %>
+  <li><%= link_to activity.exercise.name %> - <%= activity.title %> posted on <%= activity.created_at.strftime("%B %d, %Y") %></li>
+  <% end %>
+</ul>
