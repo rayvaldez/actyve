@@ -1,10 +1,26 @@
 <h1>Add an activity</h1>
 <h2><%= @exercise.name %></h2>
 
+<% if @activity.errors.any? %>
+
+  <h3>
+    <%= pluralize(@activity.errors.count, "error") %>
+    prohibited this activity from being saved:
+  </h3>
+
+  <ul>
+  <% @activity.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<br>
+
 <%= form_for [@exercise, @activity] do |f| %>
 
   <%= f.hidden_field :exercise_id, :value => @exercise.id %>
-  <%= f.hidden_field :user_id, :value =>@user.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <%#= f.label :exercise %>
   <%#= f.collection_select :exercise_id, Exercise.all, :id, :name, {:selected => @exercise.id} %>
 

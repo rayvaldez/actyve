@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
     @exercise = Exercise.find_by_id(params[:exercise_id])
     @activity = current_user.activities.new(activity_params)
     # raise params.inspect
-    if @activity.save!
+    if @activity.save
       redirect_to exercise_activity_path(@exercise, @activity)
     else
       render :new
