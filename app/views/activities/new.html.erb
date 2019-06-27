@@ -1,19 +1,7 @@
 <h1>Add an activity</h1>
 <h2><%= @exercise.name %></h2>
 
-<% if @activity.errors.any? %>
-
-  <h3>
-    <%= pluralize(@activity.errors.count, "error") %>
-    prohibited this activity from being saved:
-  </h3>
-
-  <ul>
-  <% @activity.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
+<%= render partial: 'layouts/errors', locals: {object: @activity} %>
 
 <br>
 
