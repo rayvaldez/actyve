@@ -4,8 +4,9 @@ Your models must:
 
 # • Include at least one has_many, at least one belongs_to, and at least two has_many :through relationships
 
-  - A USER has_many ACTIVITIES, and has_many EXERCISES through ACTIVITIES. The EXERCISE model
-  has_many ACTIVITIES, and has_many USERS through ACTIVITIES.
+  - A USER has_many ACTIVITIES, and has_many EXERCISES through ACTIVITIES.
+  - The EXERCISE model has_many ACTIVITIES, and has_many USERS through ACTIVITIES.
+  - The ACTIVITIES model will belong to a USER and an EXERCISE.
 
 # • Include a many-to-many relationship implemented with has_many :through associations. The join table must include a user-submittable attribute — that is to say, some attribute other than its foreign keys that can be submitted by the app's user
 
@@ -30,6 +31,8 @@ There are a couple of scope methods I can implement for a USER to query:
 
   - All ACTIVITIES from that USER
   - All ACTIVITIES from a specific EXERCISE
+  - Total time for all activities, or for a specific EXERCISE
+  - Total calories burned, or for a specific EXERCISE
 
 
 # Your application must provide standard user authentication, including signup, login, logout, and passwords.
@@ -57,3 +60,29 @@ Your application must be, within reason, a DRY (Do-Not-Repeat-Yourself) rails ap
 # • Follow patterns in the Rails Style Guide and the Ruby Style Guide.
 
 Do not use scaffolding to build your project. Your goal here is to learn. Scaffold is a way to get up and running quickly, but learning a lot is not one of the benefits of scaffolding.
+
+# CURRENT STATUS
+
+ I have just added validation errors to the USER registration and when recording an ACTIVITY.
+
+ What I will do next is elaborate further on my Scope Method. So I will try to include options for
+ a USER to be able to filter out their search queries.
+
+ What I have left to do is:
+
+ - Allow a USER to create a new exercise if it doesn't already exist
+ - Include login through Facebook or Github
+ - Refactor code into helpers and partials
+ - DRY up my code
+ - Add some styling to the views
+
+One thing I would like to ask is that when creating an Activity, a USER would first be taken to
+the EXERCISE index page. This way the activity will already be nested under an EXERCISE. Would
+I need to create an non-nested create route for an activity, which includes maybe a drop down list
+of EXERCISES?
+
+I have seen that Jennifer Hansen does this in her Ice Cream Social Walkthrough, but I was just
+wondering if this was necessary.
+
+Thanks again for taking the time to look through my notes, if there is anything I have missed out
+or need to include, please let me know!
