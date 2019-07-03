@@ -19,6 +19,14 @@ class ExercisesController < ApplicationController
   end
 
   def show
+    @exercise = Exercise.find_by_id(params[:id])
+  end
+
+  def destroy
+    @exercise = Exercise.find_by_id(params[:id])
+    @exercise.destroy
+
+    redirect_to exercises_path
   end
 
   private

@@ -1,0 +1,7 @@
+<h1><%= @exercise.name %></h1>
+
+Add an Activity <%= link_to "here", new_exercise_activity_path(@exercise) %>
+
+<br><br>
+
+<%= link_to "Delete Exercise", exercise_path(@exercise), method: :delete, data: {confirm: "Are you sure?"} %>
