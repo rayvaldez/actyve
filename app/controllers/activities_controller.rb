@@ -1,20 +1,17 @@
 class ActivitiesController < ApplicationController
+  before_action :set_exercise, only: [:new, :create, :show, :edit, :update]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user = current_user
     @activities = Activity.all
   end
 
   def new
-    @user = current_user
-    @exercise = Exercise.find_by_id(params[:exercise_id])
     @activity = Activity.new
   end
 
   def create
-    @exercise = Exercise.find_by_id(params[:exercise_id])
     @activity = current_user.activities.new(activity_params)
-    # raise params.inspect
     if @activity.save
       redirect_to exercise_activity_path(@exercise, @activity)
     else
@@ -23,27 +20,20 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @exercise = Exercise.find_by_id(params[:exercise_id])
-    @activity = Activity.find_by(id: params[:id])
   end
 
   def edit
-    @user = current_user
-    @exercise = Exercise.find_by_id(params[:exercise_id])
-    @activity = Activity.find(params[:id])
   end
 
   def update
-    @exercise = Exercise.find_by_id(params[:exercise_id])
-    @activity = current_user.activities.update(activity_params)
-    # raise params.inspect
-    redirect_to exercise_activity_path(@exercise, @activity)
-
+    if @activity.update(activity_params)
+      redirect_to exercise_activity_path(@exercise, @activity)
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @activity = Activity.find(params[:id])
     @activity.destroy
 
     redirect_to exercise_activities_path
@@ -53,5 +43,13 @@ class ActivitiesController < ApplicationController
 
   def activity_params
     params.require(:activity).permit(:title, :location, :hour, :minute, :calories, :comment, :distance, :exercise_id, :user_id)
+  end
+
+  def set_exercise
+    @exercise = Exercise.find_by_id(params[:exercise_id])
+  end
+
+  def set_activity
+    @activity = Activity.find_by(id: params[:id])
   end
 end
