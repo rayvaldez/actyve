@@ -5,42 +5,7 @@
 
 <br>
 
-<%= form_for [@exercise, @activity] do |f| %>
-
-  <%= f.hidden_field :exercise_id, :value => @exercise.id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <%#= f.label :exercise %>
-  <%#= f.collection_select :exercise_id, Exercise.all, :id, :name, {:selected => @exercise.id} %>
-
-  <%= f.label :title, "Title your activity" %>
-  <%= f.text_field :title %>
-
-  <br><br>
-
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-
-  <br><br>
-
-  <%= f.label :distance, "Distance (km)" %>
-  <%= f.number_field :distance, :step => 0.01 %>
-
-  <br><br>
-
-  <%= f.label :calories %>
-  <%= f.text_field :calories %>
-
-  <br><br>
-
-  <%= f.label :hour, "Hour(s)" %>
-  <%= f.number_field :hour, value: "0" %>
-  <%= f.label :minute, "Minute(s)" %>
-  <%= f.number_field :minute, value: "0" %>
-
-  <br><br>
-
-  <%= f.label :comment %>
-  <%= f.text_area :comment, rows: 2 %>
+<%= render 'form' %>
 
   <br><br>
 
@@ -49,11 +14,3 @@
   <br><br>
 
   Exercise not listed? <%= link_to "Add an exercise", new_exercise_path(@exercise) %>
-
-  <br><br>
-
-  <%= f.submit %>
-
-<% end %>
-
-<%= params %>
