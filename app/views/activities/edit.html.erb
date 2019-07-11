@@ -4,7 +4,7 @@
 <%= form_for [@exercise, @activity] do |f| %>
 
   <%= f.hidden_field :exercise_id, :value => @exercise.id %>
-  <%= f.hidden_field :user_id, :value =>@user.id %>
+  <%= f.hidden_field :user_id, :value => @user.id %>
   <%#= f.label :exercise %>
   <%#= f.collection_select :exercise_id, Exercise.all, :id, :name, {:selected => @exercise.id} %>
 

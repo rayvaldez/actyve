@@ -16,7 +16,7 @@
 
 <% if @activity.user_id == current_user.id %>
 
-  <%= link_to "Edit", edit_exercise_activity_path(@activity) %>
+  <%= link_to "Edit", edit_exercise_activity_path(@exercise, @activity) %>
 
   <%= link_to "Delete", exercise_activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"} %>
 
