@@ -1,0 +1,23 @@
+body{
+  background-image: url(../assets/bg4.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: 1310px 750px;
+  background-size: 1310px 760px;
+}
+
+.navbar.bg-light{
+  background-color: transparent!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #cacaca !important;
+}
+
+.jumbotron.jumbotron-fluid{
+  background-color: transparent!important;
+}
+
+.index{
+  background-color: #FFF;
+  opacity: 0.8;
+}
