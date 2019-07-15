@@ -1,7 +1,9 @@
-<h1><%= @exercise.name %></h1>
+<div class="index">
+  <h1><%= @exercise.name %></h1>
 
-Add an Activity <%= link_to "here", new_exercise_activity_path(@exercise) %>
+  Add an Activity <%= link_to "here", new_exercise_activity_path(@exercise) %>
 
-<br><br>
+  <br><br>
 
-<%= link_to "Delete Exercise", exercise_path(@exercise), method: :delete, data: {confirm: "Are you sure?"} %>
+  <%= link_to "Delete Exercise", exercise_path(@exercise), method: :delete, data: {confirm: "Are you sure?"} %>
+</div>

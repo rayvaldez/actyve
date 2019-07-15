@@ -1,14 +1,22 @@
-<h1><%= current_user.username %></h1>
+<div class="index">
+  <h1><%= current_user.username %></h1>
 
-<h2>Summary</h2>
+  <br>
 
-<h3>Total Activities</h3><%= @activities.size %>
+  <h4>Total Activities</h4><%= @activities.size %>
 
-<h3>Total Activity Time</h3><%= distance_of_time_in_words(((@activities.sum(:hour) * 60) + (@activities.sum(:minute))).minutes) %>
+  <br>
 
-<h3>Total Calories Burned</h3><%= @activities.sum(:calories) %>
+  <h4>Total Activity Time</h4><%= distance_of_time_in_words(((@activities.sum(:hour) * 60) + (@activities.sum(:minute))).minutes) %>
 
-<h3>Last 3 activities</h3><ul><% @activities.last(3).each do |activity| %>
-  <li><%= link_to activity.exercise.name %> - <%= activity.title %> posted on <%= activity.created_at.strftime("%B %d, %Y") %></li>
-  <% end %>
-</ul>
+  <br>
+
+  <h4>Total Calories Burned</h4><%= @activities.sum(:calories) %>
+
+  <br>
+
+  <h4>Last 3 activities</h4><ul><% @activities.last(3).each do |activity| %>
+    <li><%= link_to activity.exercise.name %> - <%= activity.title %> posted on <%= activity.created_at.strftime("%B %d, %Y") %></li>
+    <% end %>
+  </ul>
+</div>

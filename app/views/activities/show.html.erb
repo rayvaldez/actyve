@@ -1,23 +1,33 @@
-<h1>Your Exercise</h1>
+<div class="index">
+  <h2><%= @activity.title %></h2>
 
-<h2><%= @exercise.name %></h2>
+  <br>
 
-<h3>Duration (HH:MM)</h3><%= @activity.hour %>:<%= @activity.minute %>
+  <h4>Posted by <%= @activity.user.username %></h4>
 
-<h3>Distance</h3><%= @activity.distance %>km
+  <br>
 
-<h3>Calories Burned</h3><%= @activity.calories %>
+  <h4><%= @exercise.name %></h4>
 
-<h3>Location</h3><%= @activity.location %>
+  <br>
 
-<h3>Comment</h3><%= @activity.comment %>
+  <h4>Duration (HH:MM)</h4><%= @activity.hour %>:<%= @activity.minute %>
 
-<br><br>
+  <h4>Distance</h4><%= @activity.distance %>km
 
-<% if @activity.user_id == current_user.id %>
+  <h4>Calories Burned</h4><%= @activity.calories %>
 
-  <%= link_to "Edit", edit_exercise_activity_path(@exercise, @activity) %>
+  <h4>Location</h4><%= @activity.location %>
 
-  <%= link_to "Delete", exercise_activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"} %>
+  <h4>Comment</h4><%= @activity.comment %>
 
-<% end %>
+  <br><br>
+
+  <% if @activity.user_id == current_user.id %>
+
+    <%= link_to "Edit", edit_exercise_activity_path(@exercise, @activity) %>
+
+    <%= link_to "Delete", exercise_activity_path(@activity), method: :delete, data: {confirm: "Are you sure?"} %>
+
+  <% end %>
+</div>

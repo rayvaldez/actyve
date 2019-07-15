@@ -1,16 +1,18 @@
-<h1>Add an activity</h1>
-<h2><%= @exercise.name %></h2>
+<div class="index">
+  <h1>Add an activity</h1>
+  <h2><%= @exercise.name %></h2>
 
-<%= render partial: 'layouts/errors', locals: {object: @activity} %>
+  <%= render partial: 'layouts/errors', locals: {object: @activity} %>
 
-<br>
+  <br>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-  <br><br>
+    <br><br>
 
-  Wrong Exercise? <%= link_to "Choose a different exercise", exercises_path(@exercise) %>
+    Wrong Exercise? <%= link_to "Choose a different exercise", exercises_path(@exercise) %>
 
-  <br><br>
+    <br><br>
 
-  Exercise not listed? <%= link_to "Add an exercise", new_exercise_path(@exercise) %>
+    Exercise not listed? <%= link_to "Add an exercise", new_exercise_path(@exercise) %>
+</div>

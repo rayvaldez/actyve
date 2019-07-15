@@ -1,9 +1,11 @@
-<h1>All exercises</h1>
+<div class="index">
+  <h1>All exercises</h1>
 
-<ul>
-  <% @exercises.each do |exercise| %>
-  <h4><li><%= link_to exercise.name, new_exercise_activity_path(exercise.id) %></li></h4>
-  <% end %>
-</ul>
+  <ul>
+    <% @exercises.each do |exercise| %>
+    <h4><li><%= link_to exercise.name, new_exercise_activity_path(exercise.id) %></li></h4>
+    <% end %>
+  </ul>
 
-Exercise not listed? <%= link_to "Create an exercise", new_exercise_path %>
+  Exercise not listed? <%= link_to "Create an exercise", new_exercise_path %>
+</div>

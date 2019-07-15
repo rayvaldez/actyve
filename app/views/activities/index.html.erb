@@ -1,11 +1,24 @@
-<h1>All Activities</h1>
+<div class="index">
+  <h3>All Activities</h3>
 
-<ul>
-  <% @activities.each do |activity| %>
-    <li><%= activity.created_at.strftime("%B %d, %Y") %> <%= activity.user.username %> posted a new activity!
-    <br>
-    <%= link_to activity.exercise.name, exercise_activity_path(activity.exercise_id, activity.id) %> - <%= activity.location %> - <%= activity.title %>
-    <br>
-    </li>
-  <% end %>
-</ul>
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">User</th>
+        <th scope="col">Type</th>
+        <th scope="col">Last Post</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+      <tr>
+        <td><%= link_to activity.title, exercise_activity_path(activity.exercise_id, activity.id) %></td>
+        <td><%= link_to activity.user.username, user_path(activity.user) %></td>
+        <td><%= link_to activity.exercise.name, exercise_activity_path(activity.exercise_id, activity.id) %></td>
+        <td><%= activity.created_at.strftime("%B %d, %Y") %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
