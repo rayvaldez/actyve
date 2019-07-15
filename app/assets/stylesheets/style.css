@@ -21,3 +21,7 @@ body{
   background-color: #FFF;
   opacity: 0.8;
 }
+
+.new_user{
+  color: #cacaca !important;
+}
