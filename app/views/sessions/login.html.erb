@@ -1,12 +1,27 @@
-<h1>Log in</h1>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="text-center">
+      <img src="images/actyve.png" width="250" height="220">
+      <h1 style="color: #cacaca">Log in</h1>
 
-<%= form_for @user, url: '/login' do |f| %>
+      <%= form_for @user, url: '/login' do |f| %>
 
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+        <p style="color: #cacaca">
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+          <%= render partial: 'layouts/errors', locals: {object: @user} %>
+          
+          <%= f.label :username %>
+          <%= f.text_field :username %>
 
-  <%= f.submit "Log In"  %>
-<% end %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+        </p>
+
+        <br><br>
+
+        <%= f.submit "Log In"  %>
+      <% end %>
+    </div>
+  </div>
+</div>
