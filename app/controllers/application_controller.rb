@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    redirect_to new_session_path if !is_logged_in?
+    redirect_to '/login' if !is_logged_in?
   end
 end

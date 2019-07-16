@@ -1,6 +1,7 @@
 class ActivitiesController < ApplicationController
   before_action :set_exercise, only: [:new, :create, :show, :edit, :update]
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @activities = Activity.all.reverse
