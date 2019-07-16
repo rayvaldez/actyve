@@ -1,14 +1,16 @@
-<h1>Add an exercise</h1>
+<div class="index">
+  <h1>Add an exercise</h1>
 
-<%= render partial: 'layouts/errors', locals: {object: @exercise} %>
+  <%= render partial: 'layouts/errors', locals: {object: @exercise} %>
 
-<div>
-  <%= form_for @exercise do |f| %>
+  <div>
+    <%= form_for @exercise do |f| %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
 
-    <%= f.submit %>
+      <%= f.submit %>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>
