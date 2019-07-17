@@ -24,6 +24,11 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
+    if @activity.user_id == current_user.id
+      render :edit
+    else
+      redirect_to exercise_activities_path
+    end
   end
 
   def update
