@@ -4,7 +4,7 @@ class ActivitiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @activities = Activity.all.reverse
+    @activities = Activity.order(created_at: :desc)
   end
 
   def new

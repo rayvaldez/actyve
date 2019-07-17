@@ -3,6 +3,15 @@
 
   <br>
 
+  <h4>This month</h4>
+
+    <p>
+      Activities - <%= @activities.this_month.size %> <br>
+      Time - <%= distance_of_time_in_words(((@activities.this_month.sum(:hour) * 60) + (@activities.this_month.sum(:minute))).minutes) %> <br>
+      Calories - <%= @activities.this_month.sum(:calories) %>
+    </p>
+
+
   <h4>Total Activities</h4><%= @activities.size %>
 
   <br>
