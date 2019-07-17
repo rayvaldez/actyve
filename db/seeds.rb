@@ -7,6 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Exercise.create(name: 'Run')
 Exercise.create(name: 'Cycle')
+Exercise.create(name: 'Walk')
 Exercise.create(name: 'Swim')
-Exercise.create(name: 'Rowing')
-Exercise.create(name: 'Weights')

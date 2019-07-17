@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:welcome, :new, :create, :show]
 
-  resources :exercises, only: [:index, :new, :create, :show, :destroy] do
+  resources :exercises, only: [:index] do
     resources :activities
   end
 
