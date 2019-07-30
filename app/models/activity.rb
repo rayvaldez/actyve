@@ -3,9 +3,8 @@ class Activity < ApplicationRecord
   belongs_to :exercise
 
   validates :title, presence: true
-  validates :hour, :minute, numericality: { more_than_or_equal_to: 0}
-  validates :minute, numericality: { less_than_or_equal_to: 60}
-  validates :distance, :hour, :calories, numericality: {allow_nil: true }
+  validates :hour, :minute, :calories, :distance, numericality: { only_integer: true, greater_than_or_equal_to: 0, allow_nil: true}
+  validates :minute, numericality: { less_than_or_equal_to: 60, allow_nil: true}
 
 
   scope :user_activities, -> (user) {where(user_id: user)}
