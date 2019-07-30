@@ -6,6 +6,11 @@ class ExercisesController < ApplicationController
     @exercises = Exercise.all
   end
 
+  def show
+    @activities = Activity.type(@exercise)
+    @exercise = Exercise.find_by(id: params[:id])
+  end
+
   private
 
   def set_exercise

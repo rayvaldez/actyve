@@ -9,5 +9,5 @@ class Activity < ApplicationRecord
 
   scope :user_activities, -> (user) {where(user_id: user)}
   scope :this_month, -> { where(created_at: Time.now.beginning_of_month..Time.now.end_of_month) }
-
+  scope :type, -> (exercise) { where(exercise_id: exercise)}
 end
