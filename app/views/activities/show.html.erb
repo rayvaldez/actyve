@@ -3,15 +3,15 @@
 
   <br>
 
-  <h4>Posted by <%= @activity.user.username %></h4>
+  <h4>Posted by <%= link_to @activity.user.username, user_path(@activity.user) %></h4>
 
   <br>
 
-  <h4><%= @exercise.name %></h4>
+  <h4>Exercise type - <%= link_to @activity.exercise.name, exercise_path(@activity.exercise_id) %></h4>
 
   <br>
 
-  <h4>Duration (HH:MM)</h4><%= @activity.hour %>:<%= @activity.minute %>
+  <h4>Duration</h4><%= @activity.hour.to_i %> Hours <%= @activity.minute %> Minutes
 
   <h4>Distance</h4><%= @activity.distance %>km
 
