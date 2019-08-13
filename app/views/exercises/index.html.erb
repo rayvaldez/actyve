@@ -1,10 +1,10 @@
 <div class="index">
-  <h1>All exercises</h1>
+  <h1>Choose an exercise type to begin:</h1>
 
   <ul>
     <% @exercises.each do |exercise| %>
     <h4><li><%= link_to exercise.name, new_exercise_activity_path(exercise.id) %></li></h4>
     <% end %>
   </ul>
-  
+
 </div>

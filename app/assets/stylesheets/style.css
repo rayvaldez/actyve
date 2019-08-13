@@ -26,3 +26,7 @@ body{
 .new_user{
   color: #cacaca !important;
 }
+
+.field_with_errors {
+  display: inline;
+}

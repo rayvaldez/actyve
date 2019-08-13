@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/auth/github/callback' => 'sessions#create'
+  get '/exercise_type/:id' => 'exercises#show', as: 'exercise_type'
 
   resources :users, only: [:welcome, :new, :create, :show]
 

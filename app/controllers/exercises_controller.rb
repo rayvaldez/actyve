@@ -8,7 +8,6 @@ class ExercisesController < ApplicationController
 
   def show
     @activities = Activity.type(@exercise)
-    @exercise = Exercise.find_by(id: params[:id])
   end
 
   private
