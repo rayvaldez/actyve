@@ -25,7 +25,7 @@
   <br>
 
   <h4>Last 3 activities</h4><ul><% @activities.last(3).each do |activity| %>
-    <li><%= link_to activity.exercise.name %> - <%= activity.title %> posted on <%= activity.created_at.strftime("%B %d, %Y") %></li>
+    <li><%= link_to activity.exercise.name, exercise_activity_path(activity.exercise_id, activity.id) %> - <%= activity.title %> posted on <%= activity.created_at.strftime("%B %d, %Y") %></li>
     <% end %>
   </ul>
 </div>
