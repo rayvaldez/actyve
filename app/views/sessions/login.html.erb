@@ -4,15 +4,15 @@
       <img src="images/actyve.png" width="250" height="220">
       <h1 style="color: #cacaca">Log in</h1>
 
-      <%= form_for @user, url: '/login' do |f| %>
+      <%= form_for(:user, url: '/login') do |f| %>
 
-          <%= render partial: 'layouts/errors', locals: {object: @user} %>
+          <p style="color: #cacaca"><%= flash[:error] %></p>
 
-          <%= f.label :username %>
+          <p style="color: #cacaca"><%= f.label :username %></p>
           <%= f.text_field :username %>
 
 
-          <%= f.label :password %>
+          <p style="color: #cacaca"><%= f.label :password %></p>
           <%= f.password_field :password %>
 
         <br><br>

@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to activities_path
       else
-        redirect_to "/login"
+        flash[:error] = "Sorry, login information is incorrect. Please try again."
+        render :login
       end
     end
   end
