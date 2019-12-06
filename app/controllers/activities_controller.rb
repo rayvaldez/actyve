@@ -49,6 +49,9 @@ class ActivitiesController < ApplicationController
     if valid_user?
       @activity.destroy
       redirect_to exercise_activities_path
+    else
+      redirect_to exercise_activities_path
+      flash [:error] = "Error! You cannot delete this post!"
     end
   end
 
