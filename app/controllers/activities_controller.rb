@@ -28,7 +28,7 @@ class ActivitiesController < ApplicationController
   end
 
   def edit
-    if @activity.user_id == current_user.id
+    if valid_user?
       render :edit
     else
       redirect_to exercise_activities_path
@@ -36,7 +36,8 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    if @activity.update(activity_params) && @activity.user_id == current_user.id
+    if valid_user?
+      @activity.update(activity_params)
       redirect_to exercise_activity_path(@exercise, @activity)
     else
       flash[:error] = "Error! You do not have permission to edit this activity!"
@@ -62,5 +63,9 @@ class ActivitiesController < ApplicationController
 
   def set_activity
     @activity = Activity.find_by(id: params[:id])
+  end
+
+  def valid_user?
+    @activity.user_id == current_user.id
   end
 end

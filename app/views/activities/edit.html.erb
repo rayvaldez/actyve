@@ -2,6 +2,8 @@
   <h1>Edit your activity</h1>
   <h2><%= @activity.title %></h2>
 
-  <%= render partial: 'layouts/errors', locals: {object: @activity} %>
+  <div class="error">
+    <%= flash[:error] %>
+  </div>
   <%= render 'form' %>
 </div>
