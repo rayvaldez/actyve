@@ -46,9 +46,10 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @activity.destroy
-
-    redirect_to exercise_activities_path
+    if valid_user?
+      @activity.destroy
+      redirect_to exercise_activities_path
+    end
   end
 
   private
