@@ -21,6 +21,10 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    if !@activity
+      redirect_to exercise_activities_path
+      flash[:error] = "Activity unavailable"
+    end
   end
 
   def edit
@@ -32,9 +36,10 @@ class ActivitiesController < ApplicationController
   end
 
   def update
-    if @activity.update(activity_params)
+    if @activity.update(activity_params) && @activity.user_id == current_user.id
       redirect_to exercise_activity_path(@exercise, @activity)
     else
+      flash[:error] = "Error! You do not have permission to edit this activity!"
       render :edit
     end
   end

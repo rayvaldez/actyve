@@ -30,3 +30,8 @@ body{
 .field_with_errors {
   display: inline;
 }
+
+div.error{
+  text-align: center;
+  color: #FE2020;
+}
